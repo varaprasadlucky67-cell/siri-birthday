@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday B Sai Siri ❤️</title>
+  <title>Happy Birthday Siri ❤️️</title>
   <style>
     * {
       box-sizing: border-box;
@@ -112,7 +112,7 @@
       -webkit-backdrop-filter: blur(16px);
       border: 1px solid rgba(255, 255, 255, 0.18);
       border-radius: 28px;
-      padding: 40px 24px;
+      padding: 35px 22px;
       max-width: 500px;
       width: 100%;
       text-align: center;
@@ -142,7 +142,7 @@
     }
 
     h1 {
-      font-size: 1.95rem;
+      font-size: 2.1rem;
       font-weight: 800;
       color: #ff8da1;
       margin-bottom: 6px;
@@ -152,14 +152,14 @@
     .date-tag {
       font-size: 1.05rem;
       color: #fce7f3;
-      margin-bottom: 22px;
+      margin-bottom: 18px;
       font-weight: 500;
     }
 
     .avatar-wrapper {
-      width: 135px;
-      height: 135px;
-      margin: 0 auto 20px;
+      width: 150px;
+      height: 150px;
+      margin: 0 auto 18px;
       border-radius: 50%;
       padding: 4px;
       background: linear-gradient(135deg, #ff4b6e, #ffd166);
@@ -171,6 +171,7 @@
       height: 100%;
       border-radius: 50%;
       object-fit: cover;
+      object-position: top center;
       background: #111;
     }
 
@@ -179,35 +180,59 @@
       align-items: center;
       gap: 6px;
       font-size: 0.82rem;
-      color: #86efac;
-      margin-bottom: 24px;
+      color: #ffd166;
+      margin-bottom: 20px;
+      background: rgba(255, 209, 102, 0.15);
+      padding: 6px 12px;
+      border-radius: 20px;
+      border: 1px solid rgba(255, 209, 102, 0.3);
     }
 
-    .heart-action-section {
-      background: rgba(0, 0, 0, 0.25);
-      border-radius: 20px;
-      padding: 22px 16px;
-      border: 1px dashed rgba(255, 117, 140, 0.4);
+    .interactive-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
       margin-top: 10px;
     }
 
-    .touch-prompt {
-      font-size: 0.92rem;
-      color: #ffe4e6;
-      margin-bottom: 14px;
-      font-weight: 500;
+    .action-box {
+      background: rgba(0, 0, 0, 0.3);
+      border-radius: 18px;
+      padding: 16px 10px;
+      border: 1px dashed rgba(255, 117, 140, 0.4);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
     }
 
-    .interactive-heart {
+    .action-box:hover {
+      transform: translateY(-3px);
+      background: rgba(0, 0, 0, 0.45);
+    }
+
+    .action-box p {
+      font-size: 0.8rem;
+      color: #ffe4e6;
+      margin-top: 6px;
+      font-weight: 600;
+    }
+
+    .interactive-btn {
       background: none;
       border: none;
-      font-size: 3.2rem;
+      font-size: 2.8rem;
       cursor: pointer;
       display: inline-block;
-      animation: heartbeat 1.4s infinite ease-in-out;
-      filter: drop-shadow(0 0 16px rgba(255, 75, 110, 0.8));
-      transition: transform 0.2s ease;
       user-select: none;
+    }
+
+    .heart-btn {
+      animation: heartbeat 1.4s infinite ease-in-out;
+      filter: drop-shadow(0 0 14px rgba(255, 75, 110, 0.8));
+    }
+
+    .cake-btn {
+      animation: cakeWobble 2s infinite ease-in-out;
+      filter: drop-shadow(0 0 16px rgba(255, 209, 102, 0.8));
     }
 
     @keyframes heartbeat {
@@ -216,6 +241,12 @@
       28% { transform: scale(1); }
       42% { transform: scale(1.18); }
       70% { transform: scale(1); }
+    }
+
+    @keyframes cakeWobble {
+      0%, 100% { transform: rotate(0deg) scale(1); }
+      25% { transform: rotate(-6deg) scale(1.05); }
+      75% { transform: rotate(6deg) scale(1.05); }
     }
 
     #note-modal {
@@ -241,7 +272,7 @@
       background: linear-gradient(160deg, rgba(35, 18, 55, 0.95), rgba(18, 12, 35, 0.95));
       border: 1px solid rgba(255, 141, 161, 0.4);
       border-radius: 24px;
-      padding: 30px 22px;
+      padding: 26px 20px;
       max-width: 460px;
       width: 100%;
       text-align: left;
@@ -259,7 +290,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      margin-bottom: 16px;
+      margin-bottom: 14px;
       border-bottom: 1px solid rgba(255, 255, 255, 0.12);
       padding-bottom: 10px;
     }
@@ -281,23 +312,23 @@
     }
 
     .note-body {
-      font-size: 0.95rem;
-      line-height: 1.85;
+      font-size: 0.93rem;
+      line-height: 1.8;
       color: #f8fafc;
-      max-height: 60vh;
+      max-height: 55vh;
       overflow-y: auto;
       padding-right: 6px;
     }
 
     .note-body p {
-      margin-bottom: 14px;
+      margin-bottom: 12px;
     }
 
     .note-closing {
       text-align: right;
       color: #ffccd5;
       font-weight: 600;
-      margin-top: 15px;
+      margin-top: 14px;
       font-style: italic;
     }
 
@@ -346,19 +377,25 @@
     <span class="badge">Special Day ✨</span>
     
     <div class="avatar-wrapper">
-      <img src="siri.jpg" alt="B Sai Siri" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ff758c%22/><text x=%2250%22 y=%2258%22 font-size=%2226%22 text-anchor=%22middle%22 fill=%22white%22>SIRI</text></svg>'">
+      <img src="WhatsApp%20Image%202026-10-03%20at%205.47.44%20PM.jpeg" alt="Siri" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ff758c%22/><text x=%2250%22 y=%2258%22 font-size=%2226%22 text-anchor=%22middle%22 fill=%22white%22>SIRI</text></svg>'">
     </div>
 
-    <h1>Happy Birthday, B Sai Siri! 💖</h1>
+    <h1>Happy Birthday, Siri! 💖</h1>
     <div class="date-tag">🗓️ November 5th — The Most Special Day</div>
 
     <div class="sound-badge">
-      <span>🎵</span> Playing Happy Birthday Tune
+      <span>🎆</span> Diwali Crackers & Celebration
     </div>
 
-    <div class="heart-action-section">
-      <div class="touch-prompt">Ee Heart meeda touch chesi nee special message chudu ❤️</div>
-      <button class="interactive-heart" onclick="openLoveNote()" title="Touch My Heart">❤️</button>
+    <div class="interactive-grid">
+      <div class="action-box" onclick="openLoveNote()">
+        <button class="interactive-btn heart-btn">❤️</button>
+        <p>Touch For Love Note</p>
+      </div>
+      <div class="action-box" onclick="cutCakeCelebration()">
+        <button class="interactive-btn cake-btn" id="cakeIcon">🎂</button>
+        <p id="cakeText">Click To Cut Cake 🍰</p>
+      </div>
     </div>
   </div>
 
@@ -388,6 +425,126 @@
   </div>
 
   <script>
+    let audioCtx = null;
+
+    function getAudioContext() {
+      if (!audioCtx) {
+        const AudioCtx = window.AudioContext || window.webkitAudioContext;
+        audioCtx = new AudioCtx();
+      }
+      if (audioCtx.state === 'suspended') {
+        audioCtx.resume();
+      }
+      return audioCtx;
+    }
+
+    function playCrackerBlast(timeOffset = 0, intensity = 1.0) {
+      const ctx = getAudioContext();
+      const startTime = ctx.currentTime + timeOffset;
+
+      const boomOsc = ctx.createOscillator();
+      const boomGain = ctx.createGain();
+      boomOsc.type = 'sine';
+      boomOsc.frequency.setValueAtTime(140 * intensity, startTime);
+      boomOsc.frequency.exponentialRampToValueAtTime(25, startTime + 0.45);
+
+      boomGain.gain.setValueAtTime(0.7 * intensity, startTime);
+      boomGain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.45);
+
+      boomOsc.connect(boomGain);
+      boomGain.connect(ctx.destination);
+      boomOsc.start(startTime);
+      boomOsc.stop(startTime + 0.45);
+
+      const bufferSize = ctx.sampleRate * 0.4;
+      const buffer = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+      const data = buffer.getChannelData(0);
+      for (let i = 0; i < bufferSize; i++) {
+        data[i] = (Math.random() * 2 - 1) * Math.exp(-i / (ctx.sampleRate * 0.08));
+      }
+
+      const noise = ctx.createBufferSource();
+      noise.buffer = buffer;
+
+      const noiseFilter = ctx.createBiquadFilter();
+      noiseFilter.type = 'bandpass';
+      noiseFilter.frequency.setValueAtTime(1200, startTime);
+      noiseFilter.Q.setValueAtTime(1.5, startTime);
+
+      const noiseGain = ctx.createGain();
+      noiseGain.gain.setValueAtTime(0.6 * intensity, startTime);
+      noiseGain.gain.exponentialRampToValueAtTime(0.001, startTime + 0.38);
+
+      noise.connect(noiseFilter);
+      noiseFilter.connect(noiseGain);
+      noiseGain.connect(ctx.destination);
+      noise.start(startTime);
+    }
+
+    function triggerDiwaliCelebration() {
+      const timings = [0, 0.25, 0.5, 0.85, 1.1, 1.45, 1.9, 2.3, 2.7, 3.2];
+      timings.forEach(delay => {
+        playCrackerBlast(delay, 0.7 + Math.random() * 0.4);
+      });
+    }
+
+    function playBirthdayTune() {
+      const ctx = getAudioContext();
+      const notes = [
+        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 293.66, d: 0.6 },
+        { f: 261.63, d: 0.6 },  { f: 349.23, d: 0.6 },  { f: 329.63, d: 1.1 },
+        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 293.66, d: 0.6 },
+        { f: 261.63, d: 0.6 },  { f: 392.00, d: 0.6 },  { f: 349.23, d: 1.1 },
+        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 523.25, d: 0.6 },
+        { f: 440.00, d: 0.6 },  { f: 349.23, d: 0.6 },  { f: 329.63, d: 0.6 },
+        { f: 293.66, d: 0.9 },
+        { f: 466.16, d: 0.35 }, { f: 466.16, d: 0.25 }, { f: 440.00, d: 0.6 },
+        { f: 349.23, d: 0.6 },  { f: 392.00, d: 0.6 },  { f: 349.23, d: 1.2 }
+      ];
+
+      let startTime = ctx.currentTime + 0.6;
+      notes.forEach(n => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(n.f, startTime);
+
+        gain.gain.setValueAtTime(0.24, startTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, startTime + n.d);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(startTime);
+        osc.stop(startTime + n.d);
+
+        startTime += n.d + 0.08;
+      });
+    }
+
+    function speakHappyBirthdaySiri() {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance("Happy Birthday Siri!");
+        utterance.rate = 0.9;
+        utterance.pitch = 1.2;
+        utterance.volume = 1;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function cutCakeCelebration() {
+      const cakeIcon = document.getElementById('cakeIcon');
+      const cakeText = document.getElementById('cakeText');
+      cakeIcon.innerHTML = '🍰✨';
+      cakeText.innerText = 'Happy Birthday Siri! ❤️';
+      
+      triggerDiwaliCelebration();
+      startConfetti();
+      speakHappyBirthdaySiri();
+      playBirthdayTune();
+    }
+
     function checkPin() {
       const input = document.getElementById('pinInput').value;
       const errMsg = document.getElementById('errMsg');
@@ -399,6 +556,7 @@
         setTimeout(() => {
           lockScreen.style.display = 'none';
           document.getElementById('mainCard').classList.add('visible');
+          triggerDiwaliCelebration();
           playBirthdayTune();
           startConfetti();
         }, 600);
@@ -415,49 +573,13 @@
     function openLoveNote() {
       const modal = document.getElementById('note-modal');
       modal.classList.add('open');
+      playCrackerBlast(0, 0.8);
       startConfetti();
     }
 
     function closeLoveNote() {
       const modal = document.getElementById('note-modal');
       modal.classList.remove('open');
-    }
-
-    function playBirthdayTune() {
-      const AudioCtx = window.AudioContext || window.webkitAudioContext;
-      if (!AudioCtx) return;
-      const ctx = new AudioCtx();
-
-      const notes = [
-        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 293.66, d: 0.6 },
-        { f: 261.63, d: 0.6 },  { f: 349.23, d: 0.6 },  { f: 329.63, d: 1.1 },
-        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 293.66, d: 0.6 },
-        { f: 261.63, d: 0.6 },  { f: 392.00, d: 0.6 },  { f: 349.23, d: 1.1 },
-        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 523.25, d: 0.6 },
-        { f: 440.00, d: 0.6 },  { f: 349.23, d: 0.6 },  { f: 329.63, d: 0.6 },
-        { f: 293.66, d: 0.9 },
-        { f: 466.16, d: 0.35 }, { f: 466.16, d: 0.25 }, { f: 440.00, d: 0.6 },
-        { f: 349.23, d: 0.6 },  { f: 392.00, d: 0.6 },  { f: 349.23, d: 1.2 }
-      ];
-
-      let startTime = ctx.currentTime + 0.15;
-      notes.forEach(n => {
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'triangle';
-        osc.frequency.setValueAtTime(n.f, startTime);
-
-        gain.gain.setValueAtTime(0.28, startTime);
-        gain.gain.exponentialRampToValueAtTime(0.001, startTime + n.d);
-
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-
-        osc.start(startTime);
-        osc.stop(startTime + n.d);
-
-        startTime += n.d + 0.08;
-      });
     }
 
     function createHearts() {
@@ -486,13 +608,13 @@
 
     function startConfetti() {
       particles = [];
-      const colors = ['#ff4b6e', '#ffd166', '#a78bfa', '#38bdf8', '#ffffff'];
-      for (let i = 0; i < 140; i++) {
+      const colors = ['#ff4b6e', '#ffd166', '#a78bfa', '#38bdf8', '#ff3838', '#ffffff'];
+      for (let i = 0; i < 160; i++) {
         particles.push({
           x: canvas.width / 2,
           y: canvas.height / 2,
-          vx: (Math.random() - 0.5) * 16,
-          vy: (Math.random() - 0.7) * 18,
+          vx: (Math.random() - 0.5) * 18,
+          vy: (Math.random() - 0.7) * 20,
           size: Math.random() * 8 + 4,
           color: colors[Math.floor(Math.random() * colors.length)],
           gravity: 0.35,
