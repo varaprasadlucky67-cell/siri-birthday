@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday B Sai Siri ❤️</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    }
+
+    body {
+      background: radial-gradient(circle at top, #2b1055, #090a0f);
+      min-height: 100vh;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    #lock-screen {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 8, 20, 0.96);
+      backdrop-filter: blur(20px);
+      z-index: 100;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      text-align: center;
+    }
+
+    .lock-box {
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+      border-radius: 24px;
+      padding: 35px 25px;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    }
+
+    .lock-icon {
+      font-size: 2.8rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .lock-title {
+      font-size: 1.35rem;
+      color: #ff8da1;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .lock-sub {
+      font-size: 0.9rem;
+      color: #cbd5e1;
+      margin-bottom: 22px;
+    }
+
+    .pin-input {
+      width: 170px;
+      letter-spacing: 12px;
+      font-size: 1.7rem;
+      text-align: center;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border: 2px solid #ff4b6e;
+      background: rgba(0, 0, 0, 0.5);
+      color: #fff;
+      outline: none;
+      margin-bottom: 14px;
+    }
+
+    .unlock-btn {
+      width: 100%;
+      background: linear-gradient(135deg, #ff4b6e, #ff758c);
+      color: white;
+      border: none;
+      padding: 13px 20px;
+      border-radius: 50px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 6px 18px rgba(255, 75, 110, 0.4);
+      transition: transform 0.15s ease;
+    }
+
+    .unlock-btn:active {
+      transform: scale(0.97);
+    }
+
+    .error-msg {
+      color: #ff6b6b;
+      font-size: 0.85rem;
+      margin-top: 10px;
+      min-height: 18px;
+    }
+
+    .surprise-card {
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 28px;
+      padding: 40px 24px;
+      max-width: 500px;
+      width: 100%;
+      text-align: center;
+      box-shadow: 0 20px 45px rgba(0, 0, 0, 0.6);
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      position: relative;
+      z-index: 10;
+    }
+
+    .surprise-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      background: rgba(255, 117, 140, 0.2);
+      border: 1px solid rgba(255, 117, 140, 0.5);
+      border-radius: 20px;
+      font-size: 0.85rem;
+      color: #ff8da1;
+      font-weight: 600;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: 1.95rem;
+      font-weight: 800;
+      color: #ff8da1;
+      margin-bottom: 6px;
+      text-shadow: 0 0 15px rgba(255, 141, 161, 0.45);
+    }
+
+    .date-tag {
+      font-size: 1.05rem;
+      color: #fce7f3;
+      margin-bottom: 22px;
+      font-weight: 500;
+    }
+
+    .avatar-wrapper {
+      width: 135px;
+      height: 135px;
+      margin: 0 auto 20px;
+      border-radius: 50%;
+      padding: 4px;
+      background: linear-gradient(135deg, #ff4b6e, #ffd166);
+      box-shadow: 0 0 25px rgba(255, 75, 110, 0.4);
+    }
+
+    .avatar-wrapper img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      background: #111;
+    }
+
+    .sound-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.82rem;
+      color: #86efac;
+      margin-bottom: 24px;
+    }
+
+    .heart-action-section {
+      background: rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      padding: 22px 16px;
+      border: 1px dashed rgba(255, 117, 140, 0.4);
+      margin-top: 10px;
+    }
+
+    .touch-prompt {
+      font-size: 0.92rem;
+      color: #ffe4e6;
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .interactive-heart {
+      background: none;
+      border: none;
+      font-size: 3.2rem;
+      cursor: pointer;
+      display: inline-block;
+      animation: heartbeat 1.4s infinite ease-in-out;
+      filter: drop-shadow(0 0 16px rgba(255, 75, 110, 0.8));
+      transition: transform 0.2s ease;
+      user-select: none;
+    }
+
+    @keyframes heartbeat {
+      0% { transform: scale(1); }
+      14% { transform: scale(1.18); }
+      28% { transform: scale(1); }
+      42% { transform: scale(1.18); }
+      70% { transform: scale(1); }
+    }
+
+    #note-modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(10, 6, 20, 0.88);
+      backdrop-filter: blur(14px);
+      z-index: 120;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+
+    #note-modal.open {
+      display: flex;
+      opacity: 1;
+    }
+
+    .note-card {
+      background: linear-gradient(160deg, rgba(35, 18, 55, 0.95), rgba(18, 12, 35, 0.95));
+      border: 1px solid rgba(255, 141, 161, 0.4);
+      border-radius: 24px;
+      padding: 30px 22px;
+      max-width: 460px;
+      width: 100%;
+      text-align: left;
+      box-shadow: 0 25px 60px rgba(0, 0, 0, 0.7);
+      border-left: 5px solid #ff4b6e;
+      animation: modalSlide 0.4s ease-out;
+    }
+
+    @keyframes modalSlide {
+      from { transform: scale(0.9) translateY(20px); }
+      to { transform: scale(1) translateY(0); }
+    }
+
+    .note-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+      padding-bottom: 10px;
+    }
+
+    .note-header h3 {
+      color: #ff8da1;
+      font-size: 1.15rem;
+    }
+
+    .close-btn {
+      background: rgba(255, 255, 255, 0.15);
+      border: none;
+      color: #fff;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    .note-body {
+      font-size: 0.95rem;
+      line-height: 1.85;
+      color: #f8fafc;
+      max-height: 60vh;
+      overflow-y: auto;
+      padding-right: 6px;
+    }
+
+    .note-body p {
+      margin-bottom: 14px;
+    }
+
+    .note-closing {
+      text-align: right;
+      color: #ffccd5;
+      font-weight: 600;
+      margin-top: 15px;
+      font-style: italic;
+    }
+
+    .heart-bg {
+      position: fixed;
+      top: -10%;
+      color: rgba(255, 75, 110, 0.28);
+      animation: floatDown 6s infinite linear;
+      font-size: 22px;
+      pointer-events: none;
+      z-index: 1;
+    }
+
+    @keyframes floatDown {
+      0% { transform: translateY(0vh) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    }
+
+    canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 60;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="lock-screen">
+    <div class="lock-box">
+      <span class="lock-icon">🔒</span>
+      <div class="lock-title">Special Birthday Surprise</div>
+      <div class="lock-sub">Enter Passcode to Unlock</div>
+      <input type="password" id="pinInput" class="pin-input" maxlength="4" placeholder="••••" autofocus>
+      <button class="unlock-btn" onclick="checkPin()">Unlock Surprise 💖</button>
+      <div class="error-msg" id="errMsg"></div>
+    </div>
+  </div>
+
+  <canvas id="confetti-canvas"></canvas>
+
+  <div class="surprise-card" id="mainCard">
+    <span class="badge">Special Day ✨</span>
+    
+    <div class="avatar-wrapper">
+      <img src="siri.jpg" alt="B Sai Siri" onerror="this.src='data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><circle cx=%2250%22 cy=%2250%22 r=%2250%22 fill=%22%23ff758c%22/><text x=%2250%22 y=%2258%22 font-size=%2226%22 text-anchor=%22middle%22 fill=%22white%22>SIRI</text></svg>'">
+    </div>
+
+    <h1>Happy Birthday, B Sai Siri! 💖</h1>
+    <div class="date-tag">🗓️ November 5th — The Most Special Day</div>
+
+    <div class="sound-badge">
+      <span>🎵</span> Playing Happy Birthday Tune
+    </div>
+
+    <div class="heart-action-section">
+      <div class="touch-prompt">Ee Heart meeda touch chesi nee special message chudu ❤️</div>
+      <button class="interactive-heart" onclick="openLoveNote()" title="Touch My Heart">❤️</button>
+    </div>
+  </div>
+
+  <div id="note-modal">
+    <div class="note-card">
+      <div class="note-header">
+        <h3>💌 From My Heart To Yours</h3>
+        <button class="close-btn" onclick="closeLoveNote()">✕</button>
+      </div>
+      <div class="note-body">
+        <p><strong>Dearest Siri,</strong></p>
+        <p>
+          Entho dooram unna sare, naa prathi alochana, naa prathi oopiri nee chuttoone thiruguthundi. Ee special roju nenu nee pakkana undi wish cheyalekapoyina, naa hrudayam eppudu nee deggare undi.
+        </p>
+        <p>
+          Distance entha unna mana bonding mundu adhi chala chinna vishayam. Nuvvu navvithe chalu, ikkada naku antha veluguga untundi. Naa life loki vacchi prathi moment ni intha beautiful ga marchinanduku thank you Siri.
+        </p>
+        <p>
+          Ee birthday roju nuvvu full anandanga, chirunavvutho undali. Nee kalla lo eppudu tears raakudadhu, prathi dream complete ga neraverali ani devudini korukuntunna. Very Happy Birthday my dear Siri! 🎂✨
+        </p>
+        <div class="note-closing">
+          Miles apart, but forever together in heart ❤️<br>
+          — Yours Always
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function checkPin() {
+      const input = document.getElementById('pinInput').value;
+      const errMsg = document.getElementById('errMsg');
+      
+      if (input === '0208') {
+        const lockScreen = document.getElementById('lock-screen');
+        lockScreen.style.transition = 'opacity 0.6s ease';
+        lockScreen.style.opacity = '0';
+        setTimeout(() => {
+          lockScreen.style.display = 'none';
+          document.getElementById('mainCard').classList.add('visible');
+          playBirthdayTune();
+          startConfetti();
+        }, 600);
+      } else {
+        errMsg.innerText = 'Wrong Passcode! Try again ❤️';
+        document.getElementById('pinInput').value = '';
+      }
+    }
+
+    document.getElementById('pinInput').addEventListener('keyup', function(e) {
+      if (e.key === 'Enter') checkPin();
+    });
+
+    function openLoveNote() {
+      const modal = document.getElementById('note-modal');
+      modal.classList.add('open');
+      startConfetti();
+    }
+
+    function closeLoveNote() {
+      const modal = document.getElementById('note-modal');
+      modal.classList.remove('open');
+    }
+
+    function playBirthdayTune() {
+      const AudioCtx = window.AudioContext || window.webkitAudioContext;
+      if (!AudioCtx) return;
+      const ctx = new AudioCtx();
+
+      const notes = [
+        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 293.66, d: 0.6 },
+        { f: 261.63, d: 0.6 },  { f: 349.23, d: 0.6 },  { f: 329.63, d: 1.1 },
+        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 293.66, d: 0.6 },
+        { f: 261.63, d: 0.6 },  { f: 392.00, d: 0.6 },  { f: 349.23, d: 1.1 },
+        { f: 261.63, d: 0.35 }, { f: 261.63, d: 0.25 }, { f: 523.25, d: 0.6 },
+        { f: 440.00, d: 0.6 },  { f: 349.23, d: 0.6 },  { f: 329.63, d: 0.6 },
+        { f: 293.66, d: 0.9 },
+        { f: 466.16, d: 0.35 }, { f: 466.16, d: 0.25 }, { f: 440.00, d: 0.6 },
+        { f: 349.23, d: 0.6 },  { f: 392.00, d: 0.6 },  { f: 349.23, d: 1.2 }
+      ];
+
+      let startTime = ctx.currentTime + 0.15;
+      notes.forEach(n => {
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(n.f, startTime);
+
+        gain.gain.setValueAtTime(0.28, startTime);
+        gain.gain.exponentialRampToValueAtTime(0.001, startTime + n.d);
+
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+
+        osc.start(startTime);
+        osc.stop(startTime + n.d);
+
+        startTime += n.d + 0.08;
+      });
+    }
+
+    function createHearts() {
+      for (let i = 0; i < 15; i++) {
+        const h = document.createElement('div');
+        h.classList.add('heart-bg');
+        h.innerHTML = '❤️';
+        h.style.left = Math.random() * 100 + 'vw';
+        h.style.animationDuration = (Math.random() * 3 + 4) + 's';
+        h.style.animationDelay = (Math.random() * 5) + 's';
+        document.body.appendChild(h);
+      }
+    }
+    createHearts();
+
+    const canvas = document.getElementById('confetti-canvas');
+    const ctx = canvas.getContext('2d');
+    let particles = [];
+
+    function resize() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    function startConfetti() {
+      particles = [];
+      const colors = ['#ff4b6e', '#ffd166', '#a78bfa', '#38bdf8', '#ffffff'];
+      for (let i = 0; i < 140; i++) {
+        particles.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          vx: (Math.random() - 0.5) * 16,
+          vy: (Math.random() - 0.7) * 18,
+          size: Math.random() * 8 + 4,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          gravity: 0.35,
+          alpha: 1
+        });
+      }
+      render();
+    }
+
+    function render() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let active = false;
+      particles.forEach(p => {
+        p.vy += p.gravity;
+        p.x += p.vx;
+        p.y += p.vy;
+        p.alpha -= 0.007;
+
+        if (p.alpha > 0) {
+          active = true;
+          ctx.save();
+          ctx.globalAlpha = p.alpha;
+          ctx.fillStyle = p.color;
+          ctx.beginPath();
+          ctx.arc(p.x, p.y, p.size / 2, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+      });
+      if (active) requestAnimationFrame(render);
+    }
+  </script>
+</body>
+</html>
